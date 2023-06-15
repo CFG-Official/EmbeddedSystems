@@ -8,6 +8,13 @@
 # Compiled MEX binaries (all platforms)
 *.mex*
 
+# Binary files
+*.bin
+*.elf
+
+# Hexadecimal files
+*.hex
+
 # Packaged app and toolbox files
 *.mlappinstall
 *.mltbx
