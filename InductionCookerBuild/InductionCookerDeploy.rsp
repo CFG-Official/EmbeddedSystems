@@ -1,9 +1,0 @@
-MW_digitalIO.o
-InductionCookerDeploy.o
-InductionCookerDeploy_data.o
-ert_main.o
-mw_mbed_interface.o
-BufferedSerial.o
-blapp_support.o
-SysTickScheduler.o
-m3m4m4f_multitasking.o
