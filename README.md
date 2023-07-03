@@ -1,12 +1,4 @@
 # Progetto di Embedded Systems - Gruppo 3
-
-## Membri del Gruppo
-| Cognome e Nome      | E-Mail                                                                   | Matricola   |
-|---------------------|--------------------------------------------------------------------------|-------------|
-| Cerasuolo Cristian  | [c.cerasuolo2@studenti.unisa.it](mailto:c.cerasuolo2@studenti.unisa.it)  | 0622701899  |
-| Ferrara Grazia      | [g.ferrara75@studenti.unisa.it](mailto:g.ferrara75@studenti.unisa.it)    | 0622701901  |
-| Guarini Alessio     | [a.guarini7@studenti.unisa.it](mailto:a.guarini7@studenti.unisa.it)      | 0622702042  |
-
 ## Contenuto della cartella
 
 - **Harnesses**: Cartella contenente tutti i Test Harness creati per la validazione del modello. Al suo interno vi è un file per ogni scenario di ciascun componente e, per ciascun componente, un file generale che contiene tutti gli scenari di test. Totale file: 21.
@@ -26,3 +18,12 @@
 - **InductionCookerDeploy.slx**: File del progetto StateFlow utilizzato durante la fase 4 (Deploy). Si è ritenuto importante duplicare il file di progetto in maniera tale da non modificare quanto fatto nelle fasi precedenti per introdurre i blocchi del package Simulink Coder Support Package for STMicroelectronics Nucleo Boards. Da questo file è possibile eseguire il comando "Build, Deploy and Start" per ottenere il contenuto della cartella InductionCookerBuild e caricare il firmware sulla board.
 
 - **SuddivisioneAttività.xlsx**: Rendiconto dell'impegno orario di ciascun componente del gruppo nelle varie fasi del progetto.
+
+- **induction_cooker_test.mp4**: Video contenente i test salienti effettuati direttamente sulla board.
+
+## Membri del Gruppo
+| Cognome e Nome      | E-Mail                                                                    | Matricola   |
+|---------------------|---------------------------------------------------------------------------|-------------|
+| Cerasuolo Cristian  | [c.cerasuolo2@studenti.unisa.it](mailto:c.cerasuolo2@studenti.unisa.it)   | 0622701899  |
+| Ferrara Grazia      | [g.ferrara75@studenti.unisa.it](mailto:g.ferrara75@studenti.unisa.it)     | 0622701901  |
+| Guarini Alessio     | [a.guarini7@studenti.unisa.it](mailto:a.guarini7@studenti.unisa.it)       | 0622702042  |
