@@ -19,7 +19,7 @@
 
 - **SuddivisioneAttività.xlsx**: Rendiconto dell'impegno orario di ciascun componente del gruppo nelle varie fasi del progetto.
 
-- **induction_cooker_test.mp4**: Video contenente i test salienti effettuati direttamente sulla board.
+- **induction_cooker_test.mp4**: Video contenente i test salienti effettuati direttamente sulla board, visualizzabile al link '<https://drive.google.com/file/d/1zgwOxmIYmiG65LBd2DkA6K30v3RwfV6D/view?usp=sharing>' oppure sulla repository GIT (il cui URL sta in Documentation.pdf).
 
 ## Membri del Gruppo
 | Cognome e Nome      | E-Mail                                                                    | Matricola   |
