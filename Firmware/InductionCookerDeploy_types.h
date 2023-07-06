@@ -1,17 +1,18 @@
 /*
+ * InductionCookerDeploy_types.h
+ *
  * Academic License - for use in teaching, academic research, and meeting
  * course requirements at degree granting institutions only.  Not for
  * government, commercial, or other organizational use.
  *
- * File: InductionCookerDeploy_types.h
+ * Code generation for model "InductionCookerDeploy".
  *
- * Code generated for Simulink model 'InductionCookerDeploy'.
- *
- * Model version                  : 1.4
- * Simulink Coder version         : 9.8 (R2022b) 13-May-2022
- * C/C++ source code generated on : Mon Jul  3 17:40:40 2023
+ * Model version              : 1.6
+ * Simulink Coder version : 9.8 (R2022b) 13-May-2022
+ * C source code generated on : Thu Jul  6 12:39:13 2023
  *
  * Target selection: ert.tlc
+ * Note: GRT includes extra infrastructure and instrumentation for prototyping
  * Embedded hardware selection: ARM Compatible->ARM Cortex
  * Code generation objectives: Unspecified
  * Validation result: Not run
@@ -72,9 +73,3 @@ typedef struct P_InductionCookerDeploy_T_ P_InductionCookerDeploy_T;
 typedef struct tag_RTM_InductionCookerDeploy_T RT_MODEL_InductionCookerDeplo_T;
 
 #endif                           /* RTW_HEADER_InductionCookerDeploy_types_h_ */
-
-/*
- * File trailer for generated code.
- *
- * [EOF]
- */

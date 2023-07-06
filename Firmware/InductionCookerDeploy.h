@@ -1,17 +1,18 @@
 /*
+ * InductionCookerDeploy.h
+ *
  * Academic License - for use in teaching, academic research, and meeting
  * course requirements at degree granting institutions only.  Not for
  * government, commercial, or other organizational use.
  *
- * File: InductionCookerDeploy.h
+ * Code generation for model "InductionCookerDeploy".
  *
- * Code generated for Simulink model 'InductionCookerDeploy'.
- *
- * Model version                  : 1.4
- * Simulink Coder version         : 9.8 (R2022b) 13-May-2022
- * C/C++ source code generated on : Mon Jul  3 17:40:40 2023
+ * Model version              : 1.6
+ * Simulink Coder version : 9.8 (R2022b) 13-May-2022
+ * C source code generated on : Thu Jul  6 12:39:13 2023
  *
  * Target selection: ert.tlc
+ * Note: GRT includes extra infrastructure and instrumentation for prototyping
  * Embedded hardware selection: ARM Compatible->ARM Cortex
  * Code generation objectives: Unspecified
  * Validation result: Not run
@@ -22,12 +23,15 @@
 #ifndef InductionCookerDeploy_COMMON_INCLUDES_
 #define InductionCookerDeploy_COMMON_INCLUDES_
 #include "rtwtypes.h"
+#include "rtw_continuous.h"
+#include "rtw_solver.h"
 #include "MW_MbedPinInterface.h"
 #include "MW_digitalIO.h"
 #endif                              /* InductionCookerDeploy_COMMON_INCLUDES_ */
 
 #include "InductionCookerDeploy_types.h"
 #include <stddef.h>
+#include <string.h>
 #include "MW_target_hardware_resources.h"
 
 /* Macros for accessing real-time model data structure */
@@ -38,6 +42,11 @@
 #ifndef rtmSetErrorStatus
 #define rtmSetErrorStatus(rtm, val)    ((rtm)->errorStatus = (val))
 #endif
+
+/* Block signals for system '<S1>/decrease_button' */
+typedef struct {
+  boolean_T b_long;                    /* '<S1>/decrease_button' */
+} B_decrease_button_InductionCo_T;
 
 /* Block states (default storage) for system '<S1>/decrease_button' */
 typedef struct {
@@ -52,8 +61,9 @@ typedef struct {
   boolean_T work;                      /* '<S1>/onoff_button' */
   boolean_T alert_led;                 /* '<S1>/induction_cooker' */
   boolean_T onoff_led;                 /* '<S1>/induction_cooker' */
-  boolean_T b_long;                    /* '<S1>/increase_button' */
-  boolean_T b_long_k;                  /* '<S1>/decrease_button' */
+  boolean_T DigitalRead1;              /* '<S1>/Digital Read1' */
+  B_decrease_button_InductionCo_T sf_increase_button;/* '<S1>/increase_button' */
+  B_decrease_button_InductionCo_T sf_decrease_button;/* '<S1>/decrease_button' */
 } B_InductionCookerDeploy_T;
 
 /* Block states (default storage) for system '<Root>' */
@@ -90,16 +100,16 @@ typedef struct {
   uint8_T temporalCounter_i1_l;        /* '<S1>/induction_cooker' */
   boolean_T b_long;                    /* '<S1>/onoff_button' */
   boolean_T alarm;                     /* '<S1>/induction_cooker' */
+  boolean_T objisempty;                /* '<S1>/Digital Write2' */
+  boolean_T objisempty_j;              /* '<S1>/Digital Write1' */
+  boolean_T objisempty_d;              /* '<S1>/Digital Write' */
+  boolean_T objisempty_n;              /* '<S1>/Digital Read3' */
+  boolean_T objisempty_l;              /* '<S1>/Digital Read2' */
+  boolean_T objisempty_a;              /* '<S1>/Digital Read1' */
+  boolean_T objisempty_g;              /* '<S1>/Digital Read' */
   DW_decrease_button_InductionC_T sf_increase_button;/* '<S1>/increase_button' */
   DW_decrease_button_InductionC_T sf_decrease_button;/* '<S1>/decrease_button' */
 } DW_InductionCookerDeploy_T;
-
-/* External outputs (root outports fed by signals with default storage) */
-typedef struct {
-  real_T alert_led;                    /* '<Root>/alert_led' */
-  real_T power_led;                    /* '<Root>/power_led' */
-  real_T onoff_led;                    /* '<Root>/onoff_led' */
-} ExtY_InductionCookerDeploy_T;
 
 /* Parameters (default storage) */
 struct P_InductionCookerDeploy_T_ {
@@ -119,7 +129,7 @@ struct P_InductionCookerDeploy_T_ {
 
 /* Real-time Model Data Structure */
 struct tag_RTM_InductionCookerDeploy_T {
-  const char_T * volatile errorStatus;
+  const char_T *errorStatus;
 };
 
 /* Block parameters (default storage) */
@@ -131,9 +141,6 @@ extern B_InductionCookerDeploy_T InductionCookerDeploy_B;
 /* Block states (default storage) */
 extern DW_InductionCookerDeploy_T InductionCookerDeploy_DW;
 
-/* External outputs (root outports fed by signals with default storage) */
-extern ExtY_InductionCookerDeploy_T InductionCookerDeploy_Y;
-
 /* Model entry point functions */
 extern void InductionCookerDeploy_initialize(void);
 extern void InductionCookerDeploy_step(void);
@@ -143,15 +150,6 @@ extern void InductionCookerDeploy_terminate(void);
 extern RT_MODEL_InductionCookerDeplo_T *const InductionCookerDeploy_M;
 extern volatile boolean_T stopRequested;
 extern volatile boolean_T runModel;
-
-/*-
- * These blocks were eliminated from the model due to optimizations:
- *
- * Block '<Root>/Constant1' : Unused code path elimination
- * Block '<Root>/Constant2' : Unused code path elimination
- * Block '<Root>/Constant3' : Unused code path elimination
- * Block '<Root>/Constant4' : Unused code path elimination
- */
 
 /*-
  * The generated code includes comments that allow you to trace directly
@@ -176,9 +174,3 @@ extern volatile boolean_T runModel;
  * '<S6>'   : 'InductionCookerDeploy/Induction Cooker Control System/toggling_led'
  */
 #endif                                 /* RTW_HEADER_InductionCookerDeploy_h_ */
-
-/*
- * File trailer for generated code.
- *
- * [EOF]
- */

@@ -118,7 +118,6 @@
 #define MW_PIL_INTERFACE 0
 #define MW_PIL_COMPORT COM2
 #define MW_SENSOR_FILELOCATION codertarget.mbed.internal
-#define MW_IOBLOCKSMODE deployed
 #define MW_DATAVERSION 2016.02
 
 #endif /* __MW_TARGET_HARDWARE_RESOURCES_H__ */
