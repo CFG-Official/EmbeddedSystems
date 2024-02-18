@@ -1,29 +1,79 @@
-# Progetto di Embedded Systems - Gruppo 3
-## Contenuto della cartella
+# Embedded Systems Project: Induction Cooktop Control System - Group 3
 
-- **Harnesses**: Cartella contenente tutti i Test Harness creati per la validazione del modello. Al suo interno vi è un file per ogni scenario di ciascun componente e, per ciascun componente, un file generale che contiene tutti gli scenari di test. Totale file: 21.
+## Description
+This repository contains the firmware solution for an induction cooktop control system. The system enables users to control the induction cooktop's power levels, monitor its activation status, and handle pot presence detection.
 
-- **TestManager**: Cartella contenente i file di test da lanciare utilizzando il tool Test Manager di MATLAB. Al suo interno vi è un file per ogni componente testato e ciascuno di essi testa a sua volta ogni scenario. Totale file: 5.
+## Features
+### Power On/Off Functionality
+- The device features a power on/off button.
+- Pressing the button when the device is off turns it on.
+- Pressing and holding the button for at least 1 second when the device is on turns it off.
+- A LED indicates the device's status.
 
-- **Firmware**: Cartella generata da MATLAB durante il processo di build del sistema, necessaria ai fini del deploy del firmware.
+### Power Control
+- The device operates at four power levels: 300W, 500W, 1000W, and 1500W.
+- After turning on the device, users can increase or decrease the power using dedicated buttons.
+- Upon powering on, the cooktop starts at 0W, and the burner is considered inactive.
+- Once the desired power level is selected, the burner is activated if it's not changed within 5 seconds.
+- Users can adjust the power while the burner is active, but the new setting is applied if not changed within 5 seconds.
+- Power adjustment buttons must be held for at least 1 second for the command to take effect.
 
-- **Documentation.pdf**: Documentazione prodotta contenente:
-  - Progettazione
-  - Descrizione modello StateFlow
-  - Descrizione degli scenari di test realizzati in Stateflow
-  - Descrizione degli scenari di test effettuati sul dispositivo a valle del deploy del firmware.
+### Power Display
+- A LED indicates burner activation.
+- The LED operates as follows based on the power level:
+  - 0W: LED off
+  - 300W: Flashing with a period of 2 seconds
+  - 500W: Flashing with a period of 1 second
+  - 1000W: Flashing with a period of 500ms
+  - 1500W: Flashing with a period of 250ms
 
-- **InductionCooker.slx**: File del progetto StateFlow utilizzato durante la fase 2 (Implementazione) e 3 (Validazione). Contiene gli harness contenuti nella cartella Harnesses accessibili dalla vista più esterna. Modello da aprire per effettuare il lancio dei test usando il SimulinkTestManager ed i file contenuti nella cartella TestManager.
+### Pot Presence Detection
+- The device ensures that the burner activates only when a pot is present on the cooktop.
+- If the pot is removed while the burner is active, an LED signals the anomaly for 10 seconds.
+- If the pot is not replaced within this time, the device deactivates the burner (power set to 0W).
 
-- **InductionCookerDeploy.slx**: File del progetto StateFlow utilizzato durante la fase 4 (Deploy). Si è ritenuto importante duplicare il file di progetto in maniera tale da non modificare quanto fatto nelle fasi precedenti per introdurre i blocchi del package Simulink Coder Support Package for STMicroelectronics Nucleo Boards. Da questo file è possibile eseguire il comando "Build, Deploy and Start" per ottenere il contenuto della cartella InductionCookerBuild e caricare il firmware sulla board. Modello da aprire per effettuare il deploy ed ottenere il contenuto della cartella Firmware.
+## Inputs and Outputs
+1. Power On/Off Button
+2. Power Increase Button
+3. Power Decrease Button
+4. Pot Presence Sensor
+5. Device Power LED (indicates if the burner is on, remains lit when the burner is active)
+6. Error LED (illuminates in case of an error)
+7. Burner Activation LED (indicates the power level of the burner)
 
-- **SuddivisioneAttività.xlsx**: Rendiconto dell'impegno orario di ciascun componente del gruppo nelle varie fasi del progetto.
+## Deliverables
+The team is required to produce and deliver:
+1. System design including use cases, activity diagrams, and state diagrams
+2. System modeling in Simulink using Stateflow
+3. Test environment in Simulink Test with at least 5 significant use cases
+4. Source code and hardware demonstrator with firmware generated from the Matlab environment
 
-- **induction_cooker_test.mp4**: Video contenente i test salienti effettuati direttamente sulla board, visualizzabile al link '<https://drive.google.com/file/d/1zgwOxmIYmiG65LBd2DkA6K30v3RwfV6D/view?usp=sharing>' oppure sulla repository GIT (il cui URL sta in Documentation.pdf).
+## Folder Contents
 
-## Membri del Gruppo
-| Cognome e Nome      | E-Mail                                                                    | Matricola   |
-|---------------------|---------------------------------------------------------------------------|-------------|
-| Cerasuolo Cristian  | [c.cerasuolo2@studenti.unisa.it](mailto:c.cerasuolo2@studenti.unisa.it)   | 0622701899  |
-| Ferrara Grazia      | [g.ferrara75@studenti.unisa.it](mailto:g.ferrara75@studenti.unisa.it)     | 0622701901  |
-| Guarini Alessio     | [a.guarini7@studenti.unisa.it](mailto:a.guarini7@studenti.unisa.it)       | 0622702042  |
+- **Harnesses**: Contains Test Harnesses created for model validation. Each file represents a test scenario for each component, and there is also a general file that includes all test scenarios for each component. Total files: 21.
+
+- **TestManager**: Contains test files to be run with MATLAB's Test Manager tool. Each file tests a specific component and includes all test scenarios. Total files: 5.
+
+- **Firmware**: Folder generated by MATLAB during the system build process, necessary for firmware deployment.
+
+- **Documentation.pdf**: Documentation containing:
+  - Design
+  - Description of the StateFlow model
+  - Description of the test scenarios implemented in Stateflow
+  - Description of the test scenarios performed on the device after firmware deployment.
+
+- **InductionCooker.slx**: StateFlow project file used during phases 2 and 3. Contains the harnesses from the Harnesses folder. Open this file to run tests using SimulinkTestManager and the files in the TestManager folder.
+
+- **InductionCookerDeploy.slx**: StateFlow project file used during phase 4 (Deploy). Contains blocks for the Simulink Coder Support Package for STMicroelectronics Nucleo Boards. Use this file to execute "Build, Deploy, and Start" to obtain the firmware in the Firmware folder.
+
+- **SuddivisioneAttività.xlsx**: Time log of each group member's commitment in various project phases.
+
+- **induction_cooker_test.mp4**: Video of tests performed on the board, available at the link '<https://drive.google.com/file/d/1zgwOxmIYmiG65LBd2DkA6K30v3RwfV6D/view?usp=sharing>' or in the GIT repository (the URL is in Documentation.pdf).
+
+## Group Members
+| Last Name, First Name | E-Mail                                                                   | ID          |
+|-----------------------|--------------------------------------------------------------------------|-------------|
+| Cerasuolo Cristian    | [c.cerasuolo2@studenti.unisa.it](mailto:c.cerasuolo2@studenti.unisa.it)  | 0622701899  |
+| Ferrara Grazia        | [g.ferrara75@studenti.unisa.it](mailto:g.ferrara75@studenti.unisa.it)    | 0622701901  |
+| Guarini Alessio       | [a.guarini7@studenti.unisa.it](mailto:a.guarini7@studenti.unisa.it)      | 0622702042  |
+
